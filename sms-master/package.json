@@ -1,0 +1,44 @@
+{
+  "name": "sms-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node ./src/dist/app",
+    "tsc": "tsc",
+    "nodemon": "nodemon start "
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sentry/node": "^5.1.0",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.14.20",
+    "@types/request": "^2.48.1",
+    "@types/sequelize": "^4.28.4",
+    "amqplib": "^0.7.1",
+    "google-protobuf": "^3.6.1",
+    "grpc": "^1.24.6",
+    "lodash": "^4.17.15",
+    "pg": "^7.11.0",
+    "request": "^2.88.0",
+    "sequelize": "^5.19.4",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "@types/assert": "0.0.31",
+    "@types/chai": "^4.1.7",
+    "@types/google-protobuf": "^3.2.7",
+    "@types/lodash": "^4.14.118",
+    "chai": "^4.2.0",
+    "grpc-tools": "^1.8.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "request": "^2.88.0",
+    "source-map-support": "^0.5.9",
+    "tap": "^12.0.1",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.3"
+  }
+}
