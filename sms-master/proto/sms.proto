@@ -1,0 +1,124 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+
+// Package
+package grpc.sms.v1;
+
+// Service
+service Sms {
+    rpc GetStatus(GetStatusRequest) returns (GetStatusResponse) {
+        option (google.api.http) = {
+            get: "/sms/v1/status"
+        };
+    }
+    rpc SendSms(SendSmsRequest) returns (SendSmsResponse) {
+        option (google.api.http) = {
+            post: "/sms/v1/sms"
+            body: "*"
+        };
+    }
+    rpc ReceivedSms(ReceivedSmsRequest) returns (ReceivedSmsRespone) {
+        option (google.api.http) = {
+            get: "/sms/v1/sms"
+        };
+    }
+    rpc DlrStatusSms(DlrStatusSmsRequest) returns (DlrStatusSmsRespone) {
+        option (google.api.http) = {
+            get: "/sms/v1/dlr"
+        };
+    }
+    rpc CheckDlrSms(CheckDlrSmsRequest) returns (CheckDlrSmsRespone) {
+        option (google.api.http) = {
+            get: "/sms/v1/chkdlr/{msgID}"
+        };
+    }
+}
+
+
+// Messages Sim
+message Sim {
+    int32 id = 1;
+    string number = 2;
+    string online = 3;
+}
+message Smsc {
+    string name = 1;
+    string admin_id = 2;
+    string id = 3;
+    string status = 4;
+    int32 failed = 5;
+    int32 queued = 6;
+    message Sms {
+        int32 received = 1;
+        int32 sent = 2;
+        string inbound = 3;
+        string outbound = 4;
+    }
+    Sms sms = 7;
+    message Dlr {
+        int32 received = 1;
+        int32 sent = 2;
+        string inbound = 3;
+        string outbound = 4;
+    }
+    Dlr dlr = 8;
+}
+// Message Received sms
+message SmsReceived {
+    int32 id = 1;
+    string form = 2;
+    string to = 3;
+    string text = 4;
+    string time = 5;
+}
+/* List Sims   */
+message GetStatusRequest {
+
+}
+
+message GetStatusResponse {
+    repeated Smsc smscs = 1;
+    string status = 2;
+}
+
+
+/* Send SMS */
+message SendSmsRequest {
+    string to = 1;
+    string smsc = 2;
+    string text = 3;
+    string charset = 4;
+    string coding = 5;
+    string tmpFlag = 6; /* Flag Send SMS Tmp with p7*/
+}
+
+message SendSmsResponse {
+    string msgID = 1;
+    string ticket = 2;
+}
+
+message ReceivedSmsRequest {
+    string form = 1;
+    string to = 2;
+    string text = 3;
+    string time = 4;
+}
+message ReceivedSmsRespone {
+    repeated SmsReceived smsReceived = 1;
+}
+message DlrStatusSmsRequest {
+    string messageID = 1; /* ts */
+    string type = 2;
+    string msg = 3;
+}
+message DlrStatusSmsRespone {
+}
+
+message CheckDlrSmsRequest {
+    string msgID = 1;
+}
+
+message CheckDlrSmsRespone {
+    string status = 1;
+}

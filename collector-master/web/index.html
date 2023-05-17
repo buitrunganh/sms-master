@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register page</title>
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<h1>Scheduler register page</h1>
+
+<form>
+<lable>Name</lable>
+<input type="text" id="name" name="name"><br>
+<label>Phone number</label>
+<input type="number" id="phone-number" name="Phone number"><br>
+<label>Address</label>
+<input type="text" id="name" name="address"><br>
+<label>Reminder start date</label>
+<input type="date" id="reminder-time"><br>
+<label>Reminder start time</label>
+<input type="time" id="reminder-date">
+<label>Period:</label>
+<input type="text" id="period"><br>
+<span onclick="console.log(typeof(document.getElementById('reminder-time').value))" class="addBtn">Add</span>
+</form>
+
+<script src="index.js"></script>
+</body>
+</html>

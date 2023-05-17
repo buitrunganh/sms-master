@@ -1,6 +1,0 @@
-[submodule "src/assets/health-node_ts"]
-	path = src/assets/health-node_ts
-	url = ../../protorepo/health-node_ts.git
-[submodule "src/assets/sms-node_ts"]
-	path = src/assets/sms-node_ts
-	url = ../../protorepo/sms-node_ts.git
